@@ -1,3 +1,7 @@
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'polls/style.css' %}" />
+
 {% if latest_question_list %}
 
 <ul>
@@ -11,7 +15,4 @@
 </ul>
 {% else %}
 <p>No polls are available.</p>
-{% endif %} class IndexView(generic.ListView): template_name =
-"polls/index.html" context_object_name = "latest_question_list" def
-get_queryset(self): """Return the last five published questions.""" return
-Question.objects.order_by("-pub_date")[:5]
+{% endif %}
