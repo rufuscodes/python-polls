@@ -36,7 +36,7 @@ class VotesView(generic.DetailView):
     def post(self, request, pk):
         question = get_object_or_404(Question, pk=pk)
         try:
-            selected_choice = question.choice_set.get(pk=request.POST["choice"])
+            selected_choice = question.choice_set.get(pk=request.POST['choice'])
         except (KeyError, Choice.DoesNotExist):
             # Redisplay the question voting form.
             return render(
